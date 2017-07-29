@@ -1,0 +1,89 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>93fc552c-edb5-4ade-89f2-d2bcb7c4eb29</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>runserver.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>Flaskr-Demo</Name>
+    <RootNamespace>Flaskr-Demo</RootNamespace>
+    <InterpreterId>MSBuild|python-flask-envs|$(MSBuildProjectFullPath)</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterArguments>
+    </InterpreterArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="flaskr\flaskr.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="flaskr\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="flaskr\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="runserver.py" />
+    <Compile Include="setup.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="..\..\..\..\..\..\Workspaces\python-flask-envs\">
+      <Id>python-flask-envs</Id>
+      <Version>2.7</Version>
+      <Description>python-flask-envs (Python 2.7 (32-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X86</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="flaskr\" />
+    <Folder Include="flaskr\templates\" />
+    <Folder Include="flaskr\static\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="flaskr\schema.sql">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="flaskr\static\style.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="flaskr\templates\layout.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="flaskr\templates\login.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="flaskr\templates\show_entries.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MANIFEST.in">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
